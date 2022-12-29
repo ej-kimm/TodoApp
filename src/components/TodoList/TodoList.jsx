@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FaTrash } from 'react-icons/fa';
 import AddTodo from '../AddTodo/AddTodo';
+import Todo from '../Todo/Todo';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([
@@ -8,20 +8,14 @@ export default function TodoList() {
     { id: '124', text: '밥먹기', status: 'active' },
   ]);
   const handleAdd = (todo) => setTodos([...todos, todo]);
+  const handleDelete = (deleted) =>
+    setTodos(todos.filter((t) => t.id !== deleted.id));
 
   return (
     <section>
       <ul>
         {todos.map((item) => (
-          <li key={item.id}>
-            <input type="checkbox" />
-            {item.text}
-            <button
-              onClick={() => setTodos(todos.filter((t) => t.id !== item.id))}
-            >
-              <FaTrash />
-            </button>
-          </li>
+          <Todo todo={item} onDelete={handleDelete} />
         ))}
       </ul>
       <AddTodo onAdd={handleAdd} />
