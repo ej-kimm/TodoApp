@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 사용하기
+## 사용해보기
 https://admirable-kringle-7452fe.netlify.app
 
 ## Available Scripts
