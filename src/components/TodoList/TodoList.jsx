@@ -4,6 +4,8 @@ import Todo from "../Todo/Todo";
 import styles from "./TodoList.module.css";
 
 export default function TodoList({ filter }) {
+  // useState(readTodosFromLocalStorage()) : todo가 랜더링 될때마다 계속 함수 호출
+  // useState(() => readTodosFromLocalStorage()) : useState가 처음 초기화될 때만 함수 호출
   const [todos, setTodos] = useState(() => readTodosFromLocalStorage());
 
   const handleAdd = (todo) => setTodos([...todos, todo]);
